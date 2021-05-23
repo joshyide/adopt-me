@@ -59,20 +59,24 @@ class Details extends Component {
             <Modal>
               <div>
                 <h2>Would you like to adopt {name}?</h2>
-                <div className="buttons">
-                  <button
-                    onClick={this.adopt}
-                    style={{ backgroundColor: this.props.theme }}
-                  >
-                    Yes
-                  </button>
-                  <button
-                    onClick={this.toggleModal}
-                    style={{ backgroundColor: this.props.theme }}
-                  >
-                    No
-                  </button>
-                </div>
+                <ThemeContext.Consumer>
+                  {([theme]) => (
+                    <div className="buttons">
+                      <button
+                        onClick={this.adopt}
+                        style={{ backgroundColor: theme }}
+                      >
+                        Yes
+                      </button>
+                      <button
+                        onClick={this.toggleModal}
+                        style={{ backgroundColor: theme }}
+                      >
+                        No
+                      </button>
+                    </div>
+                  )}
+                </ThemeContext.Consumer>
               </div>
             </Modal>
           ) : null}
